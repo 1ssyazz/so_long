@@ -1,6 +1,7 @@
 {
 	"files.associations": {
-		"mlx_int.h": "c"
+		"mlx_int.h": "c",
+		"stdio.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }
