@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 15:14:21 by msukri            #+#    #+#             */
-/*   Updated: 2022/02/17 19:24:03 by msukri           ###   ########.fr       */
+/*   Updated: 2022/06/30 13:33:28 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_bzero(void *s, size_t n)
 	}
 }	
 
-void	*ft_calloc(size_t size)
+void	*ft_calloc_1(size_t size)
 {
 	void	*ret;
 
@@ -76,7 +76,7 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (n_line == NULL)
-		n_line = ft_calloc(1 * sizeof(char));
+		n_line = ft_calloc_1(1 * sizeof(char));
 	while (!ft_strchr(n_line, '\n') && r > 0)
 	{
 		r = read(fd, buf, BUFFER_SIZE);

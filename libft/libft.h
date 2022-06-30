@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <stddef.h>
 
 typedef struct s_list
 {
@@ -77,5 +78,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 int		ft_strrncmp(const char *s1, const char *s2, size_t n);
+int		ft_countchar(const char *str, char c);
+char	*ft_matrixstr(char *s1, char *s2);
+char	**ft_dup_matrix(char **m);
+int		ft_matrixlen(char **m);
+void	ft_free_matrix(char ***m);
 
 #endif

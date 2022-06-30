@@ -1,27 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main1.c                                            :+:      :+:    :+:   */
+/*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 14:13:41 by msukri            #+#    #+#             */
-/*   Updated: 2022/06/30 13:36:57 by msukri           ###   ########.fr       */
+/*   Created: 2022/06/30 15:22:24 by msukri            #+#    #+#             */
+/*   Updated: 2022/06/30 15:26:16 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
-{
-	int		fd;
-	char	**map;
-	t_map	map_grid;
-
-	fd = map_file_checker(argc, argv);
-	if (!fd)
-		return (0);
-	map = map_check(fd, &map_grid);
-	init_game(map, map_grid);
-	return (0);
-}
+t_sprite	ft_init_sprites

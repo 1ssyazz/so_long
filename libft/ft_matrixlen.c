@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main1.c                                            :+:      :+:    :+:   */
+/*   ft_matrixlen.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 14:13:41 by msukri            #+#    #+#             */
-/*   Updated: 2022/06/30 13:36:57 by msukri           ###   ########.fr       */
+/*   Created: 2022/06/30 12:12:56 by msukri            #+#    #+#             */
+/*   Updated: 2022/06/30 12:13:49 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_matrixlen(char **m)
 {
-	int		fd;
-	char	**map;
-	t_map	map_grid;
+	int	i;
 
-	fd = map_file_checker(argc, argv);
-	if (!fd)
-		return (0);
-	map = map_check(fd, &map_grid);
-	init_game(map, map_grid);
-	return (0);
+	i = 0;
+	while (m && m[i])
+		i++;
+	return (i);
 }

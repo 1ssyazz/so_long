@@ -23,7 +23,7 @@
 char	*get_next_line(int fd);
 char	*ft_solve_n_line(ssize_t r, char **n_line, char **tmp);
 
-void	*ft_calloc(size_t size);
+void	*ft_calloc_1(size_t size);
 void	ft_bzero(void *s, size_t n);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strjoin(char const *s1, char const *s2);

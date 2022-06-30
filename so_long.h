@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 14:47:25 by msukri            #+#    #+#             */
-/*   Updated: 2022/06/23 14:39:24 by msukri           ###   ########.fr       */
+/*   Updated: 2022/06/30 15:26:51 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include "./libft/libft.h"
+# include "./get_next_line/get_next_line.h"
+
+# define SIZE 32
 
 # ifndef ANIMATION_FRAMES
 #  define ANIMATION_FRAMES 1000
@@ -72,7 +75,7 @@ int			create_trgb(int t, int r, int g, int b);
 void		my_mlx_pixel_put(t_image *data, int x, int y, int color);
 int			ft_update(void *param);
 
-int			main(void);
+// int			main(void);
 
 typedef struct s_map
 {
@@ -95,11 +98,36 @@ typedef struct s_error
 	int	borders;
 }				t_error;
 
+typedef struct s_sprite
+{
+	
+}				t_sprite;
+
+typedef struct s_game
+{
+	t_map		map_gridref;
+	t_map		map_grid;
+	t_sprite	sprites;
+	int			collectible_ref;
+	char		**map;
+	void		*mlx;
+	void		*mlx_win;
+	int			width;
+	int			height;
+}				t_game;
+
 int			main(int argc, char **argv);
 int			map_file_checker(int argc, char **argv);
-int			error(char *message);
-char		**map_check(int fd, t_map map_grid);
+int			error(char *message, char **map_str);
+char		**map_check(int fd, t_map *map_grid);
 t_map		ft_map_grid(void);
 t_error		ft_init_map_error(void);
+void		ft_readgrid(int fd, t_map *map_grid,
+				t_error *map_err, char **map_str);
+void		ft_checkgrid(char *line, t_map *map_grid,
+				t_error *map_err, int last);
+int			ft_map_error(t_error *map_error, char **map_str);
+void		init_game(char **map, t_map map_grid);
+void		ft_newgame(t_game *g, char **map, t_map *map_grid);
 
 #endif
