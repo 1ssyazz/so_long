@@ -49,7 +49,8 @@ SRCS	= ft_memset.c		\
 		ft_matrixstr.c	\
 		ft_dup_matrix.c	\
 		ft_matrixlen.c	\
-		ft_free_matrix.c
+		ft_free_matrix.c \
+		ft_vector.c
 
 SRCSB =	ft_lstnew.c			\
 		ft_lstadd_front.c	\
@@ -71,7 +72,7 @@ OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 OBJSB = $(SRCSB:.c=.o)
 OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
 
-CC		=	gcc
+CC		=	gcc -g3
 CFLAGS	=	-Wall -Wextra -Werror
 
 $(OBJS_DIR)%.o : %.c libft.h
@@ -80,7 +81,7 @@ $(OBJS_DIR)%.o : %.c libft.h
 	$(CC) $(CC_FLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS_PREFIXED)
-		@ar r $(NAME) $(OBJECTS_PREFIXED)
+		ar r $(NAME) $(OBJECTS_PREFIXED)
 		@echo "Libft Done !"
 
 all: $(NAME)

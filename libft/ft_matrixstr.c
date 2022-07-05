@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:17:32 by msukri            #+#    #+#             */
-/*   Updated: 2022/06/30 13:28:45 by msukri           ###   ########.fr       */
+/*   Updated: 2022/06/30 16:19:02 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,5 @@ char	*ft_matrixstr(char *s1, char *s2)
 	}
 	s3[s1_len + s2_len] = '\0';
 	free(s1);
-	free(s2);
 	return (s3);
 }

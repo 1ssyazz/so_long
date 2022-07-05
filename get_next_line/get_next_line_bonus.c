@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 15:14:21 by msukri            #+#    #+#             */
-/*   Updated: 2022/02/18 16:13:51 by msukri           ###   ########.fr       */
+/*   Updated: 2022/06/30 17:18:25 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	*ft_calloc(size_t size)
 	return (ret);
 }
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr_1(const char *str, int c)
 {
 	int	i;
 
@@ -54,7 +54,7 @@ char	*ft_solve_n_line(ssize_t r, char **n_line, char **tmp)
 	if (r == 0)
 		line = ft_strdup(*n_line);
 	else if (r > 0)
-		line = ft_substr(*n_line, 0, (ft_strchr(*n_line, '\n') - *n_line + 1));
+		line = ft_substr(*n_line, 0, (ft_strchr_1(*n_line, '\n') - *n_line + 1));
 	*tmp = ft_strdup(*n_line + (ft_strlen(line)));
 	ft_memfree((void **)n_line);
 	*n_line = *tmp;
@@ -77,7 +77,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	if (n_line[fd] == NULL)
 		n_line[fd] = ft_calloc(1 * sizeof(char));
-	while (!ft_strchr(n_line[fd], '\n') && r > 0)
+	while (!ft_strchr_1(n_line[fd], '\n') && r > 0)
 	{
 		r = read(fd, buf, BUFFER_SIZE);
 		if (r < 0)

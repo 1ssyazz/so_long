@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:29:59 by msukri            #+#    #+#             */
-/*   Updated: 2022/06/30 13:48:04 by msukri           ###   ########.fr       */
+/*   Updated: 2022/06/30 17:33:28 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ void	ft_checkgrid(char *line, t_map *map_grid, t_error *map_err, int last)
 	if (!map_grid->column)
 		map_grid->column = ft_strlen(line) - 1;
 	if (map_grid->column && ((map_grid->column != (int)ft_strlen(line) - 1 && \
-			ft_strchr(line, '\n')) || (map_grid->column != \
-			(int)ft_strlen(line) - 1 && !ft_strchr(line, '\n'))))
+			ft_strchr(line, '\n')) || \
+			(map_grid->column != (int)ft_strlen(line) - 1 && \
+			!ft_strchr(line, '\n'))))
 		map_err->row = 1;
 	if (line[0] != '1' || line[map_grid->column - 1] != '1' || \
 			(ft_countchar(line, '1') != map_grid->column && last))
@@ -73,7 +74,8 @@ void	ft_readgrid(int fd, t_map *map_grid, t_error *map_err, char **map_str)
 		free(last_line);
 		ft_checkgrid(line, map_grid, map_err, !map_grid->row);
 		last_line = ft_substr(line, 0, ft_strlen(line));
-		*map_str = ft_matrixstr(*map_str, line);
+		*map_str = ft_strjoin(*map_str, line);
+		(void)map_str;
 		map_grid->row++;
 	}
 }

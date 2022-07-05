@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:13:41 by msukri            #+#    #+#             */
-/*   Updated: 2022/06/30 13:36:57 by msukri           ###   ########.fr       */
+/*   Updated: 2022/06/30 17:35:06 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 	char	**map;
 	t_map	map_grid;
 
+	printf("HI");
 	fd = map_file_checker(argc, argv);
 	if (!fd)
 		return (0);

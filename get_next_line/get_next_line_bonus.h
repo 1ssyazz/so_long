@@ -25,7 +25,7 @@ char	*ft_solve_n_line(ssize_t r, char **n_line, char **tmp);
 
 void	*ft_calloc(size_t size);
 void	ft_bzero(void *s, size_t n);
-char	*ft_strchr(const char *str, int c);
+char	*ft_strchr_1(const char *str, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);
 int		ft_memfree(void **ptr);

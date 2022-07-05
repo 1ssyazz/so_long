@@ -7,7 +7,11 @@
 SRC_MAIN	=	./main1.c \
 				./error.c \
 				./map.c \
-				./game.c
+				./game.c \
+				./sprites.c \
+				./player.c \
+				./render.c \
+				./border_restrict.c
 
 SRC_GNL		=	./get_next_line/get_next_line.c \
 				./get_next_line/get_next_line_utils.c

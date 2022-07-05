@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 14:47:25 by msukri            #+#    #+#             */
-/*   Updated: 2022/06/30 15:26:51 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/05 15:24:45 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # include "./get_next_line/get_next_line.h"
 
 # define SIZE 32
+
+# ifndef REFRESH_RATE
+#  define REFRESH_RATE 100
+# endif
 
 # ifndef ANIMATION_FRAMES
 #  define ANIMATION_FRAMES 1000
@@ -77,6 +81,23 @@ int			ft_update(void *param);
 
 // int			main(void);
 
+enum e_direction
+{
+	DIR = 0,
+	N = 1,
+	S = -1,
+	E = 2,
+	W = -2
+};
+
+typedef struct s_legal
+{
+	int	north;
+	int	south;
+	int	west;
+	int	east;
+}				t_legal;
+
 typedef struct s_map
 {
 	int	row;
@@ -98,22 +119,41 @@ typedef struct s_error
 	int	borders;
 }				t_error;
 
+typedef struct s_player
+{
+	t_vec			pos;
+	t_vec			win_pos;
+	int				moving;
+	int				dir;
+	t_legal			legal;
+	struct s_player	*next;
+}				t_player;
+
 typedef struct s_sprite
 {
-	
+	void		**wall;
+	void		*mosquito;
+	void		*exit;
+	void		*saitama;
 }				t_sprite;
 
 typedef struct s_game
 {
 	t_map		map_gridref;
-	t_map		map_grid;
+	t_map		*map_grid;
 	t_sprite	sprites;
+	t_player	*player;
 	int			collectible_ref;
+	char		**map_ref;
 	char		**map;
 	void		*mlx;
 	void		*mlx_win;
 	int			width;
 	int			height;
+	int			next_dir;
+	int			g_rate;
+	int			refresh;
+	int			frames;
 }				t_game;
 
 int			main(int argc, char **argv);
@@ -129,5 +169,18 @@ void		ft_checkgrid(char *line, t_map *map_grid,
 int			ft_map_error(t_error *map_error, char **map_str);
 void		init_game(char **map, t_map map_grid);
 void		ft_newgame(t_game *g, char **map, t_map *map_grid);
+t_sprite	ft_init_sprites(t_game *g);
+t_player	*ft_new_pl(t_vec pos);
+void		ft_pl_add(t_player **list, t_player *new_player);
+void		ft_init_player(t_game *g, char **map);
+void		ft_refresh_pl(t_game *g);
+void		ft_put_pl(t_game *g);
+void		ft_next_dir(t_game *g);
+void		ft_legal_move(t_game *g, t_player *pl);
+int			is_legal(t_player *pl, int dir);
+void		move_pl(int dir, t_game *g, t_player *pl);
+
+int			ft_refresh(t_game *g);
+void		ft_check_game(t_game *g);
 
 #endif

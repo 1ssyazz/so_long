@@ -25,6 +25,12 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct s_vec
+{
+	int	x;
+	int	y;
+}				t_vec;
+
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
@@ -78,10 +84,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 int		ft_strrncmp(const char *s1, const char *s2, size_t n);
-int		ft_countchar(const char *str, char c);
+int		ft_countchar(char *str, char c);
 char	*ft_matrixstr(char *s1, char *s2);
 char	**ft_dup_matrix(char **m);
 int		ft_matrixlen(char **m);
 void	ft_free_matrix(char ***m);
+t_vec	ft_vector(int x, int y);
 
 #endif
