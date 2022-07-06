@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 12:26:52 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/05 15:27:45 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/06 15:40:22 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,19 @@ int	ft_refresh(t_game *g)
 	y = 0;
 	g->frames++;
 	ft_check_game(g);
+	if (g->refresh)
+	{
+		while (g->map[y])
+		{
+			x = 0;
+			while (g->map[y][x])
+			{
+				update_map(g, x, y);
+				x++;
+			}
+			y++;
+		}
+		g->refresh = 0;
+	}
+	return (0);
 }

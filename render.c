@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:01:34 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/05 15:29:01 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/06 16:16:48 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,35 @@ void	move_pl(int dir, t_game *g, t_player *pl)
 		if (g->map[new.y][new.x] == 'C')
 			g->map_grid->collectible--;
 		if (new.x && new.y)
-			update_pos(ft_vector(pl->pos.x, pl->pos.y), new, g);
+			ft_update_pos(ft_vector(pl->pos.x, pl->pos.y), new, g);
 	}
+}
+
+int	ft_update_pos(t_vec old, t_vec	new, t_game *g)
+{
+	t_player	*pl;
+	int			hide;
+
+	pl = g->pl;
+	hide = 0;
+	if (g->map[new.y][new.x] == 'E')
+	{
+		if (g->map_grid->collectible)
+			return (1);
+		mlx_put_image_to_window(g->mlx, g->mlx_win, g->sprites.black, \
+			old.x * SIZE, old.y * SIZE);
+		hide = ft_free_pl(g, old);
+	}
+	while (!hide && pl)
+	{
+		if (pl->pos.x == old.x && pl->pos.y == old.y)
+		{
+			pl->pos = ft_vector(new.x, new.y);
+			pl->moving = 1;
+		}
+		pl = pl->next;
+	}
+	ft_memset(&g->map[new.y][new.x], g->map[old.y][old.x], !hide);
+	ft_memset(&g->map[old.y][old.x], '0', 1);
+	return (1);
 }

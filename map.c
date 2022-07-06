@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:29:59 by msukri            #+#    #+#             */
-/*   Updated: 2022/06/30 17:33:28 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/06 15:51:02 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,20 @@ char	**map_check(int fd, t_map *map_grid)
 	if (!map)
 		error("Error\nMalloc error", NULL);
 	return (map);
+}
+
+void	update_map(t_game *g, int x, int y)
+{
+	if (g->map[y][x] == '1')
+		mlx_put_image_to_window(g->mlx, g->mlx_win, g->sprites.wall, \
+			x * SIZE, y * SIZE);
+	if (g->map[y][x] == 'E')
+		mlx_put_image_to_window(g->mlx, g->mlx_win, g->sprites.exit, \
+			x * SIZE, y * SIZE);
+	if (g->map[y][x] == 'C')
+		mlx_put_image_to_window(g->mlx, g->mlx_win, g->sprites.mosquito, \
+			x * SIZE, y * SIZE);
+	if (g->map[y][x] == '0')
+		mlx_put_image_to_window(g->mlx, g->mlx_win, g->sprites.black, \
+			x * SIZE, y * SIZE);
 }

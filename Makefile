@@ -11,7 +11,9 @@ SRC_MAIN	=	./main1.c \
 				./sprites.c \
 				./player.c \
 				./render.c \
-				./border_restrict.c
+				./border_restrict.c \
+				./free_pl.c \
+				./key.c
 
 SRC_GNL		=	./get_next_line/get_next_line.c \
 				./get_next_line/get_next_line_utils.c

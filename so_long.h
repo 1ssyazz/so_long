@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 14:47:25 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/05 15:24:45 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/06 16:07:11 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include <limits.h>
 # include "./libft/libft.h"
 # include "./get_next_line/get_next_line.h"
 
@@ -135,6 +136,7 @@ typedef struct s_sprite
 	void		*mosquito;
 	void		*exit;
 	void		*saitama;
+	void		*black;
 }				t_sprite;
 
 typedef struct s_game
@@ -143,6 +145,7 @@ typedef struct s_game
 	t_map		*map_grid;
 	t_sprite	sprites;
 	t_player	*player;
+	int			move;
 	int			collectible_ref;
 	char		**map_ref;
 	char		**map;
@@ -182,5 +185,11 @@ void		move_pl(int dir, t_game *g, t_player *pl);
 
 int			ft_refresh(t_game *g);
 void		ft_check_game(t_game *g);
+int			ft_update_pos(t_vec old, t_vec	new, t_game *g);
+void		move_pl(int dir, t_game *g, t_player *pl);
+
+int			ft_free_pl(t_game *g, t_vec	old);
+int			free_first_pl(t_game *g);
+int			free_last_pl(t_game *g);
 
 #endif
