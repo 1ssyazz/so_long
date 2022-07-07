@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 14:47:25 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/07 16:00:53 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/07 17:10:06 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define KEY_S 115
 # define KEY_A 97
 # define KEY_D 100
+# define ESC 65307
 
 # ifndef REFRESH_RATE
 #  define REFRESH_RATE 100
@@ -137,7 +138,7 @@ typedef struct s_player
 
 typedef struct s_sprite
 {
-	void		**wall;
+	void		*wall;
 	void		*mosquito;
 	void		*exit;
 	void		*saitama;

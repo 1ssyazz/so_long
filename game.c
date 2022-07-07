@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:21:31 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/07 14:52:09 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/07 16:12:17 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	end_game(t_game *g)
 	free_player(g);
 	ft_putstr_fd("Move made: ", 1);
 	ft_putnbr_fd(g->move, 1);
-	ft_putstr_fd("GRATS\n", 1);
+	ft_putstr_fd("\nGRATS\n", 1);
 	mlx_clear_window(g->mlx, g->mlx_win);
 	mlx_destroy_window(g->mlx, g->mlx_win);
 	mlx_destroy_display(g->mlx);

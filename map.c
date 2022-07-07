@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:29:59 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/06 16:56:23 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/07 16:24:33 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_checkgrid(char *line, t_map *map_grid, t_error *map_err, int last)
 		map_grid->column = ft_strlen(line) - 1;
 	if (map_grid->column && ((map_grid->column != (int)ft_strlen(line) - 1 && \
 			ft_strchr(line, '\n')) || \
-			(map_grid->column != (int)ft_strlen(line) - 1 && \
+			(map_grid->column != (int)ft_strlen(line) && \
 			!ft_strchr(line, '\n'))))
 		map_err->row = 1;
 	if (line[0] != '1' || line[map_grid->column - 1] != '1' || \

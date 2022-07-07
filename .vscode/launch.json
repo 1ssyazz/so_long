@@ -9,7 +9,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/so_long",
-			"args": ["${workspaceFolder}/tests/1min.ber"],
+			"args": ["${workspaceFolder}/tests/4normal.ber"],
 			"stopAtEntry": true,
 			"cwd": "${fileDirname}",
 			"environment": [],

@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:04:58 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/07 14:22:02 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/07 16:09:35 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ int	free_first_pl(t_game *g)
 {
 	t_player	*pl;
 
-	pl = g->pl;
+	pl = g->player;
 	if (pl->next)
-		g->pl = pl->next;
+		g->player = pl->next;
 	else
-		g->pl = NULL;
+		g->player = NULL;
 	free(pl);
 	pl = NULL;
 	return (1);

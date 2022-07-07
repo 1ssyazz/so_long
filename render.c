@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:01:34 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/07 14:32:52 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/07 17:15:36 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_put_pl(t_game *g)
 	pl = g->player;
 	while (pl)
 	{
-		mlx_put_image_to_window(g->mlx, g->mlx_win, g->sprites.black, \
-			pl->win_pos.x, pl->win_pos.y);
+		//mlx_put_image_to_window(g->mlx, g->mlx_win, g->sprites.black, 
+		//	pl->win_pos.x, pl->win_pos.y);
 		mlx_put_image_to_window(g->mlx, g->mlx_win, g->sprites.saitama, \
 			pl->win_pos.x, pl->win_pos.y);
 		if (!pl->moving)
@@ -77,7 +77,7 @@ void	ft_next_dir(t_game *g)
 
 void	move_pl(int dir, t_game *g, t_player *pl)
 {
-	t_vector	new;
+	t_vec	new;
 
 	if (pl)
 	{
