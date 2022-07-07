@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:01:34 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/06 16:16:48 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/07 14:32:52 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_put_pl(t_game *g)
 {
 	t_player	*pl;
 
-	pl = g->pl;
+	pl = g->player;
 	while (pl)
 	{
 		mlx_put_image_to_window(g->mlx, g->mlx_win, g->sprites.black, \
@@ -34,7 +34,7 @@ void	ft_refresh_pl(t_game *g)
 {
 	t_player	*pl;
 
-	pl = g->pl;
+	pl = g->player;
 	while (pl)
 	{
 		if (pl->win_pos.x < pl->pos.x * SIZE && pl->moving)
@@ -58,7 +58,7 @@ void	ft_next_dir(t_game *g)
 	t_player	*pl;
 	int			n_pl;
 
-	pl = g->pl;
+	pl = g->player;
 	n_pl = g->map_grid->player;
 	while (pl)
 	{
@@ -68,7 +68,10 @@ void	ft_next_dir(t_game *g)
 			if (g->next_dir && is_legal(pl, g->next_dir))
 				pl->dir = g->next_dir;
 			move_pl(pl->dir, g, pl);
+			if (n_pl != g->map_grid->player)
+				break ;
 		}
+		pl = pl->next;
 	}
 }	
 
@@ -100,7 +103,7 @@ int	ft_update_pos(t_vec old, t_vec	new, t_game *g)
 	t_player	*pl;
 	int			hide;
 
-	pl = g->pl;
+	pl = g->player;
 	hide = 0;
 	if (g->map[new.y][new.x] == 'E')
 	{

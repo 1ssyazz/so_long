@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:29:59 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/06 15:51:02 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/06 16:56:23 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,7 @@ void	ft_readgrid(int fd, t_map *map_grid, t_error *map_err, char **map_str)
 		free(last_line);
 		ft_checkgrid(line, map_grid, map_err, !map_grid->row);
 		last_line = ft_substr(line, 0, ft_strlen(line));
-		*map_str = ft_strjoin(*map_str, line);
-		(void)map_str;
+		*map_str = ft_matrixstr(*map_str, line);
 		map_grid->row++;
 	}
 }

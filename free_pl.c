@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:04:58 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/06 16:14:58 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/07 14:22:02 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_free_pl(t_game *g, t_vec	old)
 	t_player	*temp;
 	t_player	*prev;
 
-	temp = g->pl;
+	temp = g->player;
 	prev = NULL;
 	g->map_grid->player--;
 	while (temp)

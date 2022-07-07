@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 14:47:25 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/06 16:07:11 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/07 16:00:53 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@
 # include "./libft/libft.h"
 # include "./get_next_line/get_next_line.h"
 
-# define SIZE 32
+# define SIZE 128
+# define KEY_Q 113
+# define KEY_W 119
+# define KEY_S 115
+# define KEY_A 97
+# define KEY_D 100
 
 # ifndef REFRESH_RATE
 #  define REFRESH_RATE 100
@@ -187,9 +192,16 @@ int			ft_refresh(t_game *g);
 void		ft_check_game(t_game *g);
 int			ft_update_pos(t_vec old, t_vec	new, t_game *g);
 void		move_pl(int dir, t_game *g, t_player *pl);
+void		ft_next_dir(t_game *g);
+void		update_map(t_game *g, int x, int y);
+int			key_hook(int key, t_game *g);
+void		new_dir(t_game *g, int dir);
 
+int			end_game(t_game *g);
 int			ft_free_pl(t_game *g, t_vec	old);
 int			free_first_pl(t_game *g);
 int			free_last_pl(t_game *g);
+int			free_img(t_game *g);
+void		free_player(t_game *g);
 
 #endif

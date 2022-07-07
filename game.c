@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:21:31 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/06 16:15:57 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/07 14:52:09 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_check_game(t_game *g)
 		ft_next_dir(g);
 	if (!g->map_grid->collectible && !g->map_grid->player)
 	{
-		ft_putstr_fd("ONE PUNCH AGAIN!\n", 1);
+		ft_putstr_fd("ONE PUNCH ALL IT TAKES!\n", 1);
 		end_game(g);
 	}
 }
@@ -57,9 +57,11 @@ void	ft_newgame(t_game *g, char **map, t_map *map_grid)
 	g->next_dir = 0;
 	g->g_rate = REFRESH_RATE;
 	g->refresh = 1;
+	g->frames = 1;
 	mlx_loop_hook(g->mlx, ft_refresh, (void *)g);
 	mlx_hook(g->mlx_win, 17, 0, end_game, (void *)g);
 	mlx_key_hook(g->mlx_win, key_hook, (void *)g);
+	mlx_loop(g->mlx);
 }
 
 void	init_game(char **map, t_map map_grid)
@@ -72,6 +74,5 @@ void	init_game(char **map, t_map map_grid)
 	g.mlx = mlx_init();
 	g.mlx_win = mlx_new_window(g.mlx, map_grid.column * SIZE, \
 		map_grid.row * SIZE, "One Punch Man!");
-	mlx_loop(g.mlx);
 	ft_newgame(&g, map, &map_grid);
 }
