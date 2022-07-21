@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:21:31 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/07 16:12:17 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/21 14:38:47 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	ft_newgame(t_game *g, char **map, t_map *map_grid)
 	g->player = NULL;
 	ft_init_player(g, map);
 	g->next_dir = 0;
+	ft_pl_image(g);
 	g->g_rate = REFRESH_RATE;
 	g->refresh = 1;
 	g->frames = 1;

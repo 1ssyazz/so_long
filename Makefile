@@ -25,7 +25,7 @@ OBJS_GNL	=	${SRC_GNL:.c=.o}
 INCLUDE		=	./so_long.h \
 				./mlx_linux
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -g -fsanitize=address
 
 CC			=	gcc -g3
 

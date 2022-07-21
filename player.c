@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 12:26:52 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/07 17:14:04 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/21 15:14:23 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,19 @@ int	ft_refresh(t_game *g)
 		g->refresh = 0;
 	}
 	return (0);
+}
+
+void	ft_pl_image(t_game *g)
+{
+	t_player	*pl;
+	int			s;
+
+	s = SIZE;
+	pl = g->player;
+	while (pl)
+	{
+		pl->sprite = mlx_xpm_file_to_image(g->mlx, \
+			"images/saitamarm1.xpm", &s, &s);
+		pl = pl->next;
+	}
 }

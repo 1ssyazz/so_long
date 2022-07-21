@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 14:47:25 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/07 17:10:06 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/21 14:43:25 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "./libft/libft.h"
 # include "./get_next_line/get_next_line.h"
 
-# define SIZE 128
+# define SIZE 16
 # define KEY_Q 113
 # define KEY_W 119
 # define KEY_S 115
@@ -134,6 +134,7 @@ typedef struct s_player
 	int				dir;
 	t_legal			legal;
 	struct s_player	*next;
+	void			*sprite;
 }				t_player;
 
 typedef struct s_sprite
@@ -141,7 +142,6 @@ typedef struct s_sprite
 	void		*wall;
 	void		*mosquito;
 	void		*exit;
-	void		*saitama;
 	void		*black;
 }				t_sprite;
 
@@ -204,5 +204,7 @@ int			free_first_pl(t_game *g);
 int			free_last_pl(t_game *g);
 int			free_img(t_game *g);
 void		free_player(t_game *g);
+
+void		ft_pl_image(t_game *g);
 
 #endif

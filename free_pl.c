@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:04:58 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/07 16:09:35 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/21 14:37:10 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_free_pl(t_game *g, t_vec	old)
 	{
 		if (temp->pos.x == old.x && temp->pos.y == old.y)
 		{
-			mlx_destroy_image(g->mlx, g->sprites.saitama);
+			mlx_destroy_image(g->mlx, temp->sprite);
 			if (!prev)
 				return (free_first_pl(g));
 			if (prev && !temp->next)
@@ -73,7 +73,7 @@ int	free_img(t_game *g)
 	pl = g->player;
 	while (pl)
 	{
-		mlx_destroy_image(g->mlx, g->sprites.saitama);
+		mlx_destroy_image(g->mlx, pl->sprite);
 		pl = pl->next;
 	}
 	mlx_destroy_image(g->mlx, g->sprites.wall);
