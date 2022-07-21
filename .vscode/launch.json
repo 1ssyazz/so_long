@@ -9,7 +9,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/so_long",
-			"args": ["${workspaceFolder}/tests/3multiplayer.ber"],
+			"args": ["${workspaceFolder}/tests/inv_character.ber"],
 			"stopAtEntry": true,
 			"cwd": "${fileDirname}",
 			"environment": [],

@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:29:59 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/21 13:28:12 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/21 15:43:51 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ t_map	ft_map_grid(void)
 
 	map_grid.collectible = 0;
 	map_grid.column = 0;
-	map_grid.enemy = 0;
 	map_grid.exit = 0;
 	map_grid.player = 0;
 	map_grid.row = 0;
@@ -37,7 +36,6 @@ void	ft_checkgrid(char *line, t_map *map_grid, t_error *map_err, int last)
 	if (line[0] != '1' || line[map_grid->column - 1] != '1' || \
 			(ft_countchar(line, '1') != map_grid->column && last))
 		map_err->borders = 1;
-	map_grid->enemy += ft_countchar(line, 'G');
 	map_grid->exit += ft_countchar(line, 'E');
 	map_grid->player += ft_countchar(line, 'P');
 	map_grid->collectible += ft_countchar(line, 'C');
@@ -46,7 +44,7 @@ void	ft_checkgrid(char *line, t_map *map_grid, t_error *map_err, int last)
 	map_err->collectibles = map_grid->collectible < 1;
 	while (line && *line)
 	{
-		if (!ft_strchr("01PCEG\n", *line))
+		if (!ft_strchr("01PCE\n", *line))
 			map_err->other_char = 1;
 		line++;
 	}

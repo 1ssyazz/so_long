@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 14:47:25 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/21 14:43:25 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/21 16:10:50 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "./libft/libft.h"
 # include "./get_next_line/get_next_line.h"
 
-# define SIZE 16
+# define SIZE 32
 # define KEY_Q 113
 # define KEY_W 119
 # define KEY_S 115
@@ -111,8 +111,7 @@ typedef struct s_map
 	int	column;
 	int	player;
 	int	exit;
-	int	collectible;
-	int	enemy;	
+	int	collectible;	
 }				t_map;
 
 typedef struct s_error
