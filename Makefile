@@ -4,7 +4,7 @@
 # 				./hooks.c \
 # 				./image.c
 
-SRC_MAIN	=	./main1.c \
+SRC_MAIN	=	./main.c \
 				./error.c \
 				./map.c \
 				./game.c \

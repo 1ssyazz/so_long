@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:21:31 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/21 14:38:47 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/22 20:21:32 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ int	end_game(t_game *g)
 {
 	if (g->map)
 		ft_free_matrix(&g->map);
-	if (g->map_ref)
-		ft_free_matrix(&g->map_ref);
 	free_img(g);
-	free_player(g);
 	ft_putstr_fd("Move made: ", 1);
 	ft_putnbr_fd(g->move, 1);
-	ft_putstr_fd("\nGRATS\n", 1);
+	ft_putchar_fd('\n', 1);
+	if (!g->player)
+		ft_putstr_fd("GRATS\n", 1);
+	free_player(g);
 	mlx_clear_window(g->mlx, g->mlx_win);
 	mlx_destroy_window(g->mlx, g->mlx_win);
 	mlx_destroy_display(g->mlx);
@@ -69,9 +69,6 @@ void	init_game(char **map, t_map map_grid)
 {
 	t_game	g;
 
-	g.map_gridref = map_grid;
-	g.collectible_ref = map_grid.collectible;
-	g.map_ref = ft_dup_matrix(map);
 	g.mlx = mlx_init();
 	g.mlx_win = mlx_new_window(g.mlx, map_grid.column * SIZE, \
 		map_grid.row * SIZE, "One Punch Man!");

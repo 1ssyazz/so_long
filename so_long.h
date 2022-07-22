@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 14:47:25 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/21 16:10:50 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/22 19:21:58 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,6 @@ typedef struct s_error
 	int	players;
 	int	exits;
 	int	collectibles;
-	int	enemies;
 	int	borders;
 }				t_error;
 
@@ -146,13 +145,10 @@ typedef struct s_sprite
 
 typedef struct s_game
 {
-	t_map		map_gridref;
 	t_map		*map_grid;
 	t_sprite	sprites;
 	t_player	*player;
 	int			move;
-	int			collectible_ref;
-	char		**map_ref;
 	char		**map;
 	void		*mlx;
 	void		*mlx_win;

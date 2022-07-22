@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 13:18:14 by msukri            #+#    #+#             */
-/*   Updated: 2022/06/30 14:19:47 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/22 18:53:02 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ t_error	ft_init_map_error(void)
 
 	map_error.borders = 0;
 	map_error.collectibles = 0;
-	map_error.enemies = 0;
 	map_error.exits = 0;
 	map_error.other_char = 0;
 	map_error.players = 0;

@@ -6,7 +6,7 @@
 /*   By: msukri <msukri@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:01:34 by msukri            #+#    #+#             */
-/*   Updated: 2022/07/21 14:45:36 by msukri           ###   ########.fr       */
+/*   Updated: 2022/07/22 20:24:10 by msukri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	ft_put_pl(t_game *g)
 	pl = g->player;
 	while (pl)
 	{
-		//mlx_put_image_to_window(g->mlx, g->mlx_win, g->sprites.black, 
-		//	pl->win_pos.x, pl->win_pos.y);
 		mlx_put_image_to_window(g->mlx, g->mlx_win, pl->sprite, \
 			pl->win_pos.x, pl->win_pos.y);
 		if (!pl->moving)
